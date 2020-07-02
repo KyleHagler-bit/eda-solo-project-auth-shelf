@@ -12,12 +12,14 @@
 [X] - create GET in shelf.router
 
 ## Add Items to Shelf
-[] - create POST in shelf.router
-[] - hook up inputs for adding new item (POST)
-[] - only add if you are logged in?? Part of stretch goal?
+[X] - create POST in shelf.router
+[X] - hook up inputs for adding new item (POST)
+[X] - item post in saga
+[X] - only add if you are logged in?? Part of stretch goal?
 
 ## Delete Items from shelf
 [] - create DELETE in shelf.router
+[] - add delete button onto items
 [] - implement authenticaion so only user whom added it can delete it
 
 ## --------------------------------------------
