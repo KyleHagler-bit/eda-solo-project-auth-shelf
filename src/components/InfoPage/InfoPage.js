@@ -34,7 +34,7 @@ const InfoPage = (props) => {
 
   return (
     <div>
-      {console.log("inside return", props)}
+      {console.log("inside return for InfoPage", props)}
       <h2>Shelf Page</h2>
       <input
         value={descriptionInput}
@@ -52,7 +52,6 @@ const InfoPage = (props) => {
           <li key={i}>
             {cur.description} <button onClick={() => deleteItem(cur.id)}>X</button><br />
             <img style={{ width: "700px" }} src={cur.image_url} />
-            
           </li>
         ))}
         <br />

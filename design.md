@@ -1,5 +1,4 @@
 ## Step 1: Register users via postman
-
 [X] - Register everyone
 [X] - Test login
 [X] - get user
@@ -18,8 +17,8 @@
 [X] - only add if you are logged in?? Part of stretch goal?
 
 ## Delete Items from shelf
-[] - create DELETE in shelf.router
-[] - add delete button onto items
+[X] - create DELETE in shelf.router
+[X] - add delete button onto items
 [] - implement authenticaion so only user whom added it can delete it
 
 ## --------------------------------------------
@@ -29,3 +28,8 @@
 [ ] - display items from specific user
 [ ] - Filestack API to upload images
 [ ] - Style with Material UI
+
+
+## MISC
+[] - update readme?
+[] - have sample data to insert into DB in .sql?
