@@ -1,5 +1,5 @@
 import axios from "axios";
-import { put, takeLatest } from "redux-saga/effects";
+import { put, takeLatest, takeEvery } from "redux-saga/effects";
 
 //saga to GET items from database
 function* fetchShelf() {
@@ -30,9 +30,26 @@ function* addShelf(action) {
   }
 }
 
+//saga to POST new item to database
+function* deleteShelf(action) {
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    };
+		//with DELETE, does not need response
+		console.log(action.payload);
+    yield axios.delete(`/api/shelf/${action.payload}`, config);
+    yield put({ type: "FETCH_SHELF" });
+  } catch (error) {
+    console.log("Error deleting item from shelf:", error);
+  }
+}
+
 function* shelfSaga() {
   yield takeLatest("FETCH_SHELF", fetchShelf);
-  yield takeLatest("ADD_SHELF_ITEM", addShelf);
+	yield takeEvery("ADD_SHELF_ITEM", addShelf);
+	yield takeEvery("DELETE_SHELF_ITEM", deleteShelf);
 }
 
 export default shelfSaga;

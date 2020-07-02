@@ -23,9 +23,18 @@ const InfoPage = (props) => {
     setImageInput("");
   };
 
+  //deletes item from list ONLY if user id matches up
+  //i.e. one who created it can delete it
+  const deleteItem = (itemID) => {
+    props.dispatch({
+      type: "DELETE_SHELF_ITEM",
+      payload: itemID
+    })
+  }
+
   return (
     <div>
-      {console.log(props)}
+      {console.log("inside return", props)}
       <h2>Shelf Page</h2>
       <input
         value={descriptionInput}
@@ -41,8 +50,9 @@ const InfoPage = (props) => {
       <ul>
         {props.shelf?.map((cur, i) => (
           <li key={i}>
-            {cur.description} <br />
+            {cur.description} <button onClick={() => deleteItem(cur.id)}>X</button><br />
             <img style={{ width: "700px" }} src={cur.image_url} />
+            
           </li>
         ))}
         <br />

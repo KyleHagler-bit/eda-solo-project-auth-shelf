@@ -52,7 +52,21 @@ router.post("/", (req, res) => {
 /**
  * Delete an item if it's something the logged in user added
  */
-router.delete("/:id", (req, res) => {});
+router.delete("/:id", (req, res) => {
+        let id = req.params.id; // id of the thing to delete
+    console.log('Delete route called with id of', id);
+
+    const queryText = `
+    DELETE FROM item WHERE id=$1;` //deletes from database
+    pool.query(queryText, [id])
+        .then(function (result) {
+            res.sendStatus(201); //status 201
+        }).catch(function (error) {
+            console.log('Sorry, there was an error with your query: ', error);
+            res.sendStatus(500); //HTTP SERVER ERROR
+
+        });
+});
 
 /**
  * Update an item if it's something the logged in user added
