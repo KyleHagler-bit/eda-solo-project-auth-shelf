@@ -36,6 +36,7 @@ const InfoPage = (props) => {
     <div>
       {console.log("inside return for InfoPage", props)}
       <h2>Shelf Page</h2>
+      <p>Hello {props.user.username}</p>
       <input
         value={descriptionInput}
         placeholder="Description"
@@ -50,7 +51,7 @@ const InfoPage = (props) => {
       <ul>
         {props.shelf?.map((cur, i) => (
           <li key={i}>
-            {cur.description} <button onClick={() => deleteItem(cur.id)}>X</button><br />
+            {cur.description} {cur.user_id === props.user.id && <button onClick={() => deleteItem(cur.id)}>X</button>}<br />
             <img style={{ width: "700px" }} src={cur.image_url} />
           </li>
         ))}
@@ -61,7 +62,8 @@ const InfoPage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { shelf: state.shelf };
+  return { shelf: state.shelf,
+    user: state.user, };
 };
 
 export default connect(mapStateToProps)(InfoPage);
