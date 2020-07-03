@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 // This is one of our simplest components
@@ -8,7 +8,14 @@ import { connect } from "react-redux";
 
 const InfoPage = (props) => {
   const [descriptionInput, setDescriptionInput] = useState();
-  const [imageInput, setImageInput] = useState();
+	const [imageInput, setImageInput] = useState();
+  
+  //similar to componentDidMount (but in functional)
+	useEffect(() => {
+		props.dispatch({type: 'FETCH_USER'});
+		props.dispatch({type: "FETCH_SHELF"});
+  }, []);
+  //pass in second arguent to avoid infinite loop (of updating)
 
   const addItem = () => {
     props.dispatch({

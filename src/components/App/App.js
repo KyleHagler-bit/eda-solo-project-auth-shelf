@@ -20,10 +20,6 @@ import InfoPage from '../InfoPage/InfoPage';
 import './App.css';
 
 class App extends Component {
-  componentDidMount () {
-		this.props.dispatch({type: 'FETCH_USER'});
-		this.props.dispatch({type: "FETCH_SHELF"});
-  }
 
   render() {
     return (

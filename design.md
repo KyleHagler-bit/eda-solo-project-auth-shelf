@@ -19,7 +19,7 @@
 ## Delete Items from shelf
 [X] - create DELETE in shelf.router
 [X] - add delete button onto items
-[] - implement authenticaion so only user whom added it can delete it
+[X] - implement authenticaion so only user whom added it can delete it
 
 ## --------------------------------------------
 ## Stretch Goals
@@ -27,7 +27,7 @@
 [ ] - guest users able to see but not edit shelf
 [ ] - display items from specific user
 [ ] - Filestack API to upload images
-[ ] - Style with Material UI
+[ ] - Style with Material UI/Bootsrap/CSS
 
 
 ## MISC
